@@ -11,6 +11,7 @@ function loadImages() {
         'images/photo_2024-09-02.jpg',
         'images/photo_2024-09-19.jpg',
         'images/photo_2024-09-09.jpg',
+        'images/photo_2026-01-21.jpg',
     ];
 
     images.forEach((image, index) => {
