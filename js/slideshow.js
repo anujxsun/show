@@ -3,7 +3,6 @@ const slidesContainer = document.querySelector('.slideshow-container');
 let currentSlide = 0;
 let images = [];
 
-// Load images dynamically with filenames containing dates
 function loadImages() {
     images = [
         'images/photo_2024-06-19.jpg',
@@ -12,7 +11,6 @@ function loadImages() {
         'images/photo_2024-09-02.jpg',
         'images/photo_2024-09-19.jpg',
         'images/photo_2024-09-09.jpg',
-        // Add more photo file names here following this pattern
     ];
 
     images.forEach((image, index) => {
@@ -20,13 +18,11 @@ function loadImages() {
         slideDiv.classList.add('slide');
         slideDiv.style.backgroundImage = `url(${image})`;
 
-        // Extract the date from the filename (assumed pattern: photo_YYYY-MM-DD.jpg)
         const date = extractDateFromFilename(image);
         const dateLabel = document.createElement('div');
         dateLabel.classList.add('date-label');
         dateLabel.textContent = date;
 
-        // Append the date label to the slide
         slideDiv.appendChild(dateLabel);
 
         if (index === 0) {
@@ -37,14 +33,12 @@ function loadImages() {
     });
 }
 
-// Function to extract date from filename (e.g., photo_2024-09-23.jpg)
 function extractDateFromFilename(filename) {
     const regex = /photo_(\d{4}-\d{2}-\d{2})/;
     const match = filename.match(regex);
     return match ? match[1] : 'Unknown date';
 }
 
-// Enhanced transition animations
 function showSlide(nextSlide, direction = 1) {
     const slides = document.querySelectorAll('.slide');
     const current = slides[currentSlide];
@@ -82,9 +76,8 @@ function prevSlide() {
     showSlide(prevSlideIndex, -1);
 }
 
-setInterval(nextSlide, 5000); // Change slide every 5 seconds
+setInterval(nextSlide, 5000); 
 
-// Load the images and start the slideshow
 loadImages();
 
 document.getElementById('next').addEventListener('click', nextSlide);
